@@ -16,7 +16,6 @@ const BlogPost = ({ data: { sanityPost: { body, title } } }) => {
     console.log(body)
     return (
         <Layout>
-            {/* <div>{body}</div> */}
             <ReactMarkdown>{body}</ReactMarkdown>
         </Layout>
     )
