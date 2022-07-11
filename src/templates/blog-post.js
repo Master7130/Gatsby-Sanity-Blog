@@ -1,18 +1,24 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
-// export const query = graphql`
-//     query BlogPostTemplateQuery($id: String!) {
-//     sanityPost(_id: { eq: $id }) {
-//       title
-//       body
-//     }
-//   }
-// `
+export const query = graphql`
+    query BlogPostTemplateQuery($slug: String!) {
+    sanityPost(slug: {current: {eq: $slug}}) {
+      title
+      body
+    }
+  }
+`
 
-const BlogPost = ({}) => {
+const BlogPost = ({ data: { sanityPost: { body, title } } }) => {
+    console.log(body)
     return (
-        <div>BlogPost</div>
+        <Layout>
+            {/* <div>{body}</div> */}
+            <ReactMarkdown>{body}</ReactMarkdown>
+        </Layout>
     )
 }
 

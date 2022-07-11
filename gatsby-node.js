@@ -1,5 +1,5 @@
 exports.createPages = async function ({ actions, graphql }) {
-    const { data } = await graphql(`
+  const { data } = await graphql(`
     {
       allSanityPost {
         edges {
@@ -13,13 +13,12 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     }
   `)
-    data.allSanityPost.edges.forEach(edge => {
-        const { id, slug = {} } = edge.node
-        const x = edge.node.slug.current
-        actions.createPage({
-            path: x,
-            component: require.resolve(`./src/templates/blog-post.js`),
-            context: { id },
-        })
+  data.allSanityPost.edges.forEach(edge => {
+    const slug = edge.node.slug.current
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/blog-post.js`),
+      context: { slug: slug },
     })
+  })
 }
