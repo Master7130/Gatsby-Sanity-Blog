@@ -3,10 +3,11 @@ module.exports = {
     title: `Gatsby Blog`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: [{
+  plugins: ['gatsby-plugin-postcss', 
+  {
     resolve: 'gatsby-source-sanity',
     options: {
-      "projectId": "1ve99miv",
+      "projectId": "9nash1hi",
       "dataset": "production"
     }
   }, "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
