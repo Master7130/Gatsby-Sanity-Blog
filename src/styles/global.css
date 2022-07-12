@@ -11,4 +11,8 @@
     p, li {
         line-height: 200%;
     }
+    code {
+        font-size: 15px;
+        line-height: 120%;
+    }
   }
